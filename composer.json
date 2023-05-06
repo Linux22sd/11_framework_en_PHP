@@ -1,0 +1,20 @@
+{
+    "name": "hp360/11_frameworks_en_php",
+    "description": "Proyecto basico",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luis Padilla",
+            "email": "alexloudog@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    }
+}
