@@ -8,13 +8,12 @@
     <title>My sitio web</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <nav class="navbar-expand-lg navbar-light bg-success mb-4">
         <div class="container">
-            <a href="/" class="navbar-brand h1">Home</a>
-            <a href="/services" class="navbar-brand h1">Services</a>
-            <a href="/contact" class="navbar-brand h1">Contact</a>
+            <a href="/" class="navbar-brand h1 text-white">Home</a>
+            <a href="/services" class="navbar-brand h1 text-white">Services</a>
+            <a href="/contact" class="navbar-brand h1 text-white">Contact</a>
         </div>
-        
     </nav>
 
     <div class="container">

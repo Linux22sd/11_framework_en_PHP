@@ -7,6 +7,7 @@ class Request{
     protected $controller;
     protected $method;
 
+    // 01 Se ejecuta el constructor al crear la instancia
     public function __construct(){
         $this->segments = explode('/', $_SERVER['REQUEST_URI']);
 
@@ -15,13 +16,13 @@ class Request{
     }
 
 
-    
+    // 02 se ejecutan estos dos metodo que son llamados del constructor
     private function setController(){
         $this->controller = empty($this->segments[1]) ? "home" : $this->segments[1];
     }
     private function setMethod(){
-        //$this->method =  $this->segments[2] ?? "index";
-        $this->method = empty($this->segments[2]) ? "index" : $this->segments[2];
+        $this->method =  $this->segments[2] ?? "index";
+        //$this->method = empty($this->segments[2]) ? "index" : $this->segments[2];
     }
 
 
@@ -34,15 +35,19 @@ class Request{
         return $this->method;
     }
 
-    
+
+    // 04 asignando variables
     public function send(){
         $controller = $this->getController();
         $method = $this->getMethod();
 
-        $response = call_user_func([
-            new $controller,
-            $method
-        ]);
+        $instance = new $controller;
+        $response = $instance->$method();
+
+        // $response = call_user_func([
+        //     new $controller,
+        //     $method
+        // ]);
 
         $response->send();
     }
