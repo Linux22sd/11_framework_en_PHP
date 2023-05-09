@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use Exception;
+
 class Request{
     protected $segments = [];
     protected $controller;
@@ -49,7 +51,18 @@ class Request{
         //     $method
         // ]);
 
-        $response->send();
+        try {
+            if($response instanceof Response){
+                $response->send();
+            }
+            else{
+                throw new \Exception("No es una instacia de Request");
+            }
+        } catch (\Exception $e) {
+            echo "Details {$e->getMessage()}";
+        }
+
+        
     }
 }
 
